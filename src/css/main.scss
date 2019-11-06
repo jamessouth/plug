@@ -1,0 +1,352 @@
+@import 'variables';
+@import 'mixins';
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $cor;
+}
+body{
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  background: linear-gradient(-65deg, rgba(250, 250, 210, .87) 25%, rgba(210, 210, 255, .88) 51%, rgba(250, 250, 210, .87) 75%);
+  @media #{$upsize_text}{
+    background-size: cover;
+  }
+}
+header{
+  @include position($tp: 0);
+  @include wh(100%, 6rem);
+  background-color: $yellow;
+  z-index: 2;
+  @media #{$head_expand}{
+    @include wh(100%, 3rem);
+  }
+}
+nav{
+  margin: 0 .5rem;
+  height: 100%;
+}
+ul{
+  @include flex(row, space-around, center);
+  flex-wrap: wrap;
+  height: 100%;
+  list-style: none;
+}
+li{
+  @include fonty(1.3em, bold);
+  margin: 0 .5rem;
+  @media #{$head_expand}{
+    margin: 0;
+  }
+  @media #{$two_col}{
+    font-size: 1.7em;
+  }
+  &:before{
+    content: "\200B";
+    position: absolute;
+  }
+  & a{
+    text-decoration: none;
+    border: $bord;
+  }
+  & a:focus{
+    @include focus($blue, 2px);
+  }
+  & a:link,
+  & a:visited{
+    color: initial;
+  }
+  & a:hover{
+    text-decoration: underline;
+  }
+  & button{
+    @include fonty(1em, bold);
+  }
+  & button:focus,
+  & button:hover{
+    @include focus($blue, 2px);
+  }
+}
+#port:target,
+#about:target,
+#articles:target,
+#cont:target{
+  padding-top: 6rem;
+  @media #{$head_expand}{
+    padding-top: 3rem;
+  }
+}
+aside{
+  @include position($rt: 2%, $lt: 2%, $tp: 2%, $bm: 2%);
+  display: none;
+  z-index: 19;
+  background-color: #696969;
+  & button{
+    @include wh(35px, 50px);
+    @include fonty(2.5em, $lh: 0);
+    background-color: #f8f8ff;
+    @include position($lt: 2%, $tp: 9%);
+    border: 3px solid transparent;
+  }
+  & button:focus,
+  & button:hover{
+    @include focus(#ff7f50, 5px);
+  }
+  & p,
+  & a{
+    font-family: serif;
+    color: white;
+  }
+  & p{
+    margin-top: 5em;
+    font-size: 24px;
+  }
+}
+object,
+iframe{
+  @include wh(100%, 100%);
+}
+h1{
+  margin: 9rem 0 9rem;
+  position: relative;
+  text-align: center;
+  font-size: 2em;
+  @media #{$two_col}{
+    @include fontMarg(2.5em, 11rem);
+  }
+  @media #{$upsize_text}{
+    @include fontMarg(3em, 12rem);
+  }
+  @media #{$big}{
+    @include fontMarg(4em, 14rem);
+  }
+}
+h2{
+  text-align: center;
+  @include fontMarg(1.75em, 3rem);
+  @media #{$two_col}{
+    @include fontMarg(2.25em, 4rem);
+  }
+  @media #{$upsize_text}{
+    @include fontMarg(2.75em, 5rem);
+  }
+  @media #{$big}{
+    @include fontMarg(3.75em, 7rem);
+  }
+}
+section{
+  position: relative;
+  margin-bottom: 14rem;
+  &:last-of-type{
+    margin-bottom: 6rem;
+  }
+}
+#about p{
+  font-family: serif;
+  font-size: 1.5em;
+  margin: auto;
+  width: 90%;
+  &:first-letter{
+    font-family: 'Permanent Marker', cursive;
+    @include fonty(3.2em, bold, 1);
+    margin: 0 .5rem;
+    border: .35rem double black;
+    padding: .15rem 1.15rem 1.15rem .45rem;
+    text-shadow: 4px 6px 1px black;
+    float: left;
+    color: $blue;
+    background-color: $yellow;
+  }
+}
+.projects{
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+  grid-column-gap: 30px;
+  grid-row-gap: 100px;
+  width: 90%;
+  margin: 0 auto 6rem;
+  @media #{$col_gap_expand}{
+    grid-column-gap: 50px;
+  }
+  @media #{$four_cols}{
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media #{$six_cols}{
+    grid-template-columns: repeat(6, 1fr);
+  }
+  @media #{$big}{
+    width: 80%;
+  }
+  & > div{
+    @include wh(288px, 435px);
+    background-color: transparent;
+  }
+  & > div:last-child{
+    @media #{$two_col}{
+      grid-column: 1 / -1;
+    }
+  }
+}
+.arts > div,
+#about p{
+  & > a{
+    font-family: inherit;
+    border: $bord;
+  }
+  & > a:link,
+  & > a:visited{
+    color: $blue;
+  }
+  & > a:hover{
+    background-color: $blue;
+    color: $yellow;
+  }
+  & > a:focus{
+    @include focus($blue, 2px);
+  }
+}
+.arts{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  & > div{
+    position: relative;
+    width: 300px;
+    margin-bottom: 4rem;
+    @media #{$col_gap_expand}{
+      margin-bottom: 0;
+    }
+    @media #{$upsize_text}{
+      width: 400px;
+    }
+  }
+  & > div:last-of-type{
+    margin-bottom: 0;
+  }
+  & > div > a{
+    display: block;
+    letter-spacing: -1px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Scheherazade', serif;
+    @include fontMarg(1.7em, 2.5rem);
+    line-height: 41px;
+    &:before,
+    &:after{
+      display: none;// too wide for iphone 4 width so don't show
+      font-family: $cor;
+      color: #30511d;
+      position: absolute;
+      font-size: 48px;
+      @media #{$quotes}{
+        display: block;
+      }
+    }
+    &:before{
+      content: open-quote;
+      left: -22px;
+    }
+    &:after{
+      content: close-quote;
+      right: -22px;
+      top: 2px;
+    }
+    @media #{$upsize_text}{
+      font-size: 2em;
+    }
+  }
+  @media #{$col_gap_expand}{
+    flex-direction: row;
+  }
+  @media #{$upsize_text}{
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+#art_paint_one div,
+#art_paint_two div{
+  @include wh(300px, 300px);
+  & a{
+    outline: none;
+    transition: .1s ease-in transform;
+  }
+  @media #{$upsize_text}{
+    margin: auto;
+  }
+}
+#art_paint_one div{
+  display: flex;
+  flex-wrap: wrap;
+  & a{
+    @include wh(150px, 150px);
+    &:focus,
+    &:hover{
+      transform: scale(1.3);
+    }
+    &:first-of-type{
+      transform-origin: left top;
+    }
+    &:nth-of-type(2){
+      transform-origin: right top;
+    }
+    &:nth-of-type(3){
+      transform-origin: left bottom;
+    }
+    &:last-of-type{
+      transform-origin: right bottom;
+    }
+  }
+}
+.art_paint_one{
+  object-fit: none;
+  @include wh(150px, 150px);
+}
+#art_paint_two div{
+  & a{
+    @include wh(300px, 300px);
+    display: block;
+    &:focus,
+    &:hover{
+      box-shadow: 0px 12px 20px $blue;
+    }
+  }
+}
+.contact{
+  @include flex(column, space-between, center);
+  margin: 0 auto;
+  @include wh(100%, 500px);
+  @media #{$two_col}{
+    flex-direction: row;
+    @include wh(80%, 150px);
+  }
+  @media #{$upsize_text}{
+    width: 724px;
+  }
+  & > div{
+    border: $bord;
+  }
+}
+.installbtn,
+.reloadbtn{
+  display: none;
+  @include position($lt: 29px, $bm: 40px);
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  color: $yellow;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 1;
+  background-color: transparent;
+  cursor: pointer;
+  @include wh(90px, 60px);
+  z-index: 8;
+  animation: 1.6s flash ease-in 4.5;
+  &:focus{
+    @include focus($yellow, 3px);
+  }
+}

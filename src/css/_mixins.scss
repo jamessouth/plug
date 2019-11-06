@@ -1,0 +1,30 @@
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+@mixin fontMarg($size, $mb) {
+	font-size: $size;
+  margin-bottom: $mb;
+}
+@mixin flex($dir, $just, $align: null) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $just;
+  align-items: $align;
+}
+@mixin position($rt: null, $lt: null, $tp: null, $bm: null) {
+  position: fixed;
+  right: $rt;
+  left: $lt;
+  top: $tp;
+  bottom: $bm;
+}
+@mixin fonty($sz, $wt: null, $lh: null) {
+  font-size: $sz;
+  font-weight: $wt;
+  line-height: $lh;
+}
+@mixin focus($col, $wd) {
+  outline: none;
+  border: $wd solid $col;
+}
