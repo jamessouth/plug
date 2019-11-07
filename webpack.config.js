@@ -7,11 +7,13 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const ScriptExtHTMLWebpackPlugin = require('script-ext-html-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
+const HelloWorldPlugin = require('./source/plug');
+
 module.exports = {
-  // mode: 'production',
+  mode: 'production',
   // devtool: 'source-map',
-  mode: 'development',
-  devtool: 'inline-source-map',
+  // mode: 'development',
+  // devtool: 'inline-source-map',
   entry: {
     main: './src/js/index.js',
   },
@@ -55,15 +57,16 @@ module.exports = {
     }),
     new HTMLWebpackPlugin({
       template: './src/html/index.html',
-      title: 'James South - Portfolio',
+      title: 'James South - Plug',
     }),
     new ScriptExtHTMLWebpackPlugin({
       defaultAttribute: 'async',
     }),
     new webpack.HashedModuleIdsPlugin(),
+    new HelloWorldPlugin(),
   ],
   devServer: {
-    port: 3000,
+    port: 2999,
     contentBase: path.join(__dirname, 'docs'),
     index: 'index.html',
   },
