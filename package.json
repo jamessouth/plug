@@ -1,8 +1,8 @@
 {
-  "name": "portfolio",
+  "name": "plug",
   "version": "2.0.0",
-  "description": "portfolio",
-  "private": "true",
+  "description": "plug",
+  "private": true,
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamessouth/portfolio.git"
+    "url": "git+https://github.com/jamessouth/plug.git"
   },
   "author": "james south",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jamessouth/portfolio/issues"
+    "url": "https://github.com/jamessouth/plug/issues"
   },
-  "homepage": "https://github.com/jamessouth/portfolio#readme",
+  "homepage": "https://github.com/jamessouth/plug#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.1",
